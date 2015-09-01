@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8187.4" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8151.3"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="HoroscopeApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Please enter your birth month and day:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rPD-EF-kxg">
+                                <rect key="frame" x="38" y="114" width="297" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="What's my Horoscope? " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C7K-AT-b66">
+                                <rect key="frame" x="65" y="73" width="243" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rDY-sm-G2v">
+                                <rect key="frame" x="154" y="154" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Month:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bcj-ON-ZWY">
+                                <rect key="frame" x="58" y="158" width="54" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Day:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Jj-jj-Yve">
+                                <rect key="frame" x="65" y="195" width="35" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wuZ-mY-CxV">
+                                <rect key="frame" x="154" y="191" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g6O-t4-HGD">
+                                <rect key="frame" x="58" y="237" width="209" height="30"/>
+                                <state key="normal" title="Tell me my horoscope!"/>
+                                <connections>
+                                    <action selector="giveHoroscope:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dHK-6m-oxT"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Your future awaits..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yoe-VG-2gQ">
+                                <rect key="frame" x="30" y="291" width="264" height="72"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="bcj-ON-ZWY" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="38" id="321-4t-61W"/>
+                            <constraint firstItem="rPD-EF-kxg" firstAttribute="top" secondItem="C7K-AT-b66" secondAttribute="bottom" constant="20" id="36V-cH-ROv"/>
+                            <constraint firstItem="Yoe-VG-2gQ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="IbR-7O-uUD"/>
+                            <constraint firstItem="C7K-AT-b66" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="53" id="Zdu-iH-LPg"/>
+                            <constraint firstItem="Yoe-VG-2gQ" firstAttribute="top" secondItem="g6O-t4-HGD" secondAttribute="bottom" constant="24" id="aKl-dC-L7d"/>
+                            <constraint firstItem="bcj-ON-ZWY" firstAttribute="top" secondItem="rPD-EF-kxg" secondAttribute="bottom" constant="23" id="bAs-zL-rex"/>
+                            <constraint firstItem="8Jj-jj-Yve" firstAttribute="top" secondItem="bcj-ON-ZWY" secondAttribute="bottom" constant="16" id="cQX-xC-Ruj"/>
+                            <constraint firstItem="g6O-t4-HGD" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="38" id="czW-yX-r3q"/>
+                            <constraint firstItem="g6O-t4-HGD" firstAttribute="top" secondItem="8Jj-jj-Yve" secondAttribute="bottom" constant="21" id="e9L-PU-Y3i"/>
+                            <constraint firstItem="rPD-EF-kxg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="18" id="osM-Ja-RQN"/>
+                            <constraint firstItem="8Jj-jj-Yve" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="45" id="pR6-6F-Fu6"/>
+                            <constraint firstItem="C7K-AT-b66" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="45" id="xGl-kj-j4t"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="dayIn" destination="wuZ-mY-CxV" id="Aqg-gl-9el"/>
+                        <outlet property="monthIn" destination="rDY-sm-G2v" id="biN-nP-gFN"/>
+                        <outlet property="msg" destination="Yoe-VG-2gQ" id="6Ae-we-mrJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="564" y="610"/>
+        </scene>
+    </scenes>
+</document>
