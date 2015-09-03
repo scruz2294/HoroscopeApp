@@ -10,13 +10,12 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    
     @IBOutlet weak var msg: UILabel!
-    @IBOutlet weak var monthIn: UITextField!
-    @IBOutlet weak var dayIn: UITextField!
-    var month: String?
-    var day: Int?
-    var sign: String = ""
+    @IBOutlet weak var monthIn: UITextField! // month input
+    @IBOutlet weak var dayIn: UITextField! // day input
+    var month: String? // month variable
+    var day: Int? // day variable
+    var sign: String = "" // will hold the user's zodiac sign
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,13 +30,16 @@ class ViewController: UIViewController {
     @IBAction func giveHoroscope(sender: AnyObject) {
         if((monthIn.text!) != "") && ((dayIn.text!) != "") {
             month = (monthIn.text)?.lowercaseString
+            month = month?.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
             day = Int(dayIn.text!)
-            msg.text = "Yay \(month!) \(day!)"
             
-            // assign the zodiac sign
-            assignZodiac(month!, day: day!)
+            // msg.text = "Yay \(month!) \(day!)" //Testing
+            
+            // function to assign the zodiac sign
+            assignZodiac(month!, day: day!) //  Make sure to unwrap these values!
             
             // give horoscope based on sign 
+            // Horoscopes from Sep. 1, 2015
             if(sign == "Aries") {
                 msg.text = "Aries (March 21-April 19). For the position you’re in, many are called, but few are chosen. If you make it through, consider yourself both lucky and worthy. Then remember, you still have a choice in what you do going forward."
             } else if(sign == "Taurus"){
@@ -62,6 +64,8 @@ class ViewController: UIViewController {
                 msg.text = "Aquarius (Jan. 20-Feb. 18). You’re inclined to play by the rules, but you’ll also play seriously — ruthlessly — for keeps. Your competitors don’t have a chance against you. Utilize your team. They really want to help."
             } else if(sign == "Pisces") {
                 msg.text = "Pisces (Feb. 19-March 20). You could coast on what you already know, but that’s not your style. Instead, you choose to keep your skills up to date. Those above you will be pleased at the initiative you show."
+            } else {
+                msg.text = "Invalid birthdate. Try again."
             }
             
         } else {
@@ -71,8 +75,14 @@ class ViewController: UIViewController {
     
     // This function assigns the Zodiac Sign according to the given birthdate
     func assignZodiac(month:String, day:Int)->String{
+        // if day is less than 0 or greater than 31, it's not valid
+        // Also, should check for invalid dates in months with less than 31 days
+        if(day < 0 || day > 31) {
+            sign = ""
+            msg.text = "Invalid birthdate. Try again."
+        }
         if(month == "january") {
-            if(day >= 1 && day < 20) {
+            if case 1..<20 = day { // Correct syntax for the range operator -- for future use!
                 sign = "Capricorn"
             } else if(day >= 20 && day <= 31) {
                 sign = "Aquarius"
@@ -80,8 +90,11 @@ class ViewController: UIViewController {
         } else if(month == "february") {
             if(day >= 1 && day < 19) {
                 sign = "Aquarius"
-            } else if(day >= 19 && day <= 28) {
+            } else if(day >= 19 && day <= 29) {
                 sign = "Pisces"
+            } else  { // if the user enters 30 or 31
+                sign = ""
+                msg.text = "Invalid birthdate. Try again."
             }
         } else if(month == "march") {
             if(day >= 1 && day < 21) {
@@ -92,8 +105,11 @@ class ViewController: UIViewController {
         } else if(month == "april") {
             if(day >= 1 && day < 20) {
                 sign = "Aries"
-            } else if(day >= 20 && day <= 31) {
+            } else if(day >= 20 && day <= 30) {
                 sign = "Taurus"
+            } else  { // if the user enters 31
+                sign = ""
+                msg.text = "Invalid birthdate. Try again."
             }
         } else if(month == "may") {
             if(day >= 1 && day < 21) {
@@ -106,6 +122,9 @@ class ViewController: UIViewController {
                 sign = "Gemini"
             } else if(day >= 22 && day <= 30) {
                 sign = "Cancer"
+            } else  { // if the user enters 31
+                sign = ""
+                msg.text = "Invalid birthdate. Try again."
             }
         } else if(month == "july") {
             if(day >= 1 && day < 23) {
@@ -124,6 +143,9 @@ class ViewController: UIViewController {
                 sign = "Virgo"
             } else if(day >= 23 && day <= 30) {
                 sign = "Libra"
+            } else  { // if the user enters 31
+                sign = ""
+                msg.text = "Invalid birthdate. Try again."
             }
         } else if(month == "october") {
             if(day >= 1 && day < 24) {
@@ -136,17 +158,27 @@ class ViewController: UIViewController {
                 sign = "Scorpio"
             } else if(day >= 22 && day < 30) {
                 sign = "Saggitarius"
+            } else  { // if the user enters 31
+                sign = ""
+                msg.text = "Invalid birthdate. Try again."
             }
         } else if(month == "december") {
             if(day >= 1 && day < 22) {
                 sign = "Saggitarius"
             } else if(day >= 22 && day <= 31) {
                 sign = "Capricorn"
-            }
+            } 
         } else {
-            msg.text = "You don't know your birthday"
+            sign = ""
+            msg.text = "Invalid birthdate. Please try again."
         }
         return sign
+    }
+    
+    // Toggles keyboard after user is done editing in the text field
+    // Source: Jessica Jones, code from in class PetAge app
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        self.view.endEditing(true)
     }
 
 }
